@@ -1,3 +1,4 @@
+const fs = require("fs");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -13,9 +14,9 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.get("/api", (req, res) => {
-  res.json({ data: "Api test data" });
-});
+fs.readdirSync("./routes").map((route) =>
+  app.use("/api", require(`./routes/${route}`))
+);
 
 const port = process.env.PORT || 8000;
 
