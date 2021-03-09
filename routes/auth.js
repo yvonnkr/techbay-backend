@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/create-or-update-user", (req, res) => {
-  res.json({ data: "auth create-or-update-user route" });
-});
+const { createOrUpdateUser } = require("../controllers/auth");
+
+router.get("/create-or-update-user", createOrUpdateUser);
 
 module.exports = router;
