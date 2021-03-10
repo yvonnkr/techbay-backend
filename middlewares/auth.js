@@ -1,7 +1,7 @@
 const admin = require("../firebase/index");
-const User = require("../models/user");
 
 exports.authCheck = async (req, res, next) => {
+  //   console.log(req.headers); next()
   //   console.log(req.headers.authtoken); next()
 
   try {
